@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Change Paragraph Style</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .bold-word {
+      font-weight: bold;
+    }
+    .bold-word:hover {
+      background-color: yellow; /* Highlight bold words on mouseover */
+      cursor: pointer;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>About the College</h1>
+  <p id="collegeParagraph">
+    Welcome to <span class="bold-word">Our College</span>, where we focus on <span class="bold-word">excellence</span> in education and <span class="bold-word">innovation</span>. Our mission is to empower students to reach their full potential and become <span class="bold-word">leaders</span> in their fields.
+  </p>
+  <form>
+    <button type="button" id="changeStyleButton">Change</button>
+  </form>
+
+  <script>
+    // Select the button and paragraph
+    const changeStyleButton = document.getElementById('changeStyleButton');
+    const collegeParagraph = document.getElementById('collegeParagraph');
+
+    // Add click event listener to the button
+    changeStyleButton.addEventListener('click', () => {
+      collegeParagraph.style.fontFamily = 'Georgia, serif'; // Change font
+      collegeParagraph.style.fontSize = '20px'; // Change font size
+      collegeParagraph.style.color = 'darkblue'; // Change font color
+    });
+
+    // Add mouseover event to bold words
+    const boldWords = document.querySelectorAll('.bold-word');
+    boldWords.forEach(word => {
+      word.addEventListener('mouseover', () => {
+        word.style.color = 'red'; // Highlight the word
+      });
+      word.addEventListener('mouseout', () => {
+        word.style.color = 'black'; // Reset color on mouseout
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bike Showroom</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        #header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        #container {
+            display: flex;
+            height: calc(100vh - 100px);
+        }
+        #brands {
+            width: 200px;
+            background-color: #f4f4f4;
+            padding: 10px;
+        }
+        #models {
+            flex: 1;
+            padding: 20px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 10px 0;
+        }
+        a {
+            text-decoration: none;
+            color: #4CAF50;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div id="header">
+    <h1>Welcome to Our Bike Showroom</h1>
+</div>
+
+<div id="container">
+    <div id="brands">
+        <h2>Bike Brands</h2>
+        <ul>
+            <li><a href="#" onclick="showModels('brand1')">Brand 1</a></li>
+            <li><a href="#" onclick="showModels('brand2')">Brand 2</a></li>
+            <li><a href="#" onclick="showModels('brand3')">Brand 3</a></li>
+            <li><a href="#" onclick="showModels('brand4')">Brand 4</a></li>
+        </ul>
+    </div>
+    <div id="models">
+        <h2>Select a Brand to View Models</h2>
+        <div id="modelDetails">
+            <p>Please select a bike brand to view models and specifications.</p>
+        </div>
+    </div>
+</div>
+
+<script>
+    function showModels(brand) {
+        const models = {
+            brand1: [
+                { name: "Model A1", specs: "Specs for Model A1" },
+                { name: "Model A2", specs: "Specs for Model A2" }
+            ],
+            brand2: [
+                { name: "Model B1", specs: "Specs for Model B1" },
+                { name: "Model B2", specs: "Specs for Model B2" }
+            ],
+            brand3: [
+                { name: "Model C1", specs: "Specs for Model C1" }
+            ],
+            brand4: [
+                { name: "Model D1", specs: "Specs for Model D1" },
+                { name: "Model D2", specs: "Specs for Model D2" }
+            ]
+        };
+
+        const modelDetails = models[brand] || [];
+        const modelList = modelDetails.map(model => `<p><strong>${model.name}:</strong> ${model.specs}</p>`).join('');
+        document.getElementById('modelDetails').innerHTML = modelList || "<p>No models available.</p>";
+    }
+</script>
+
+</body>
+</html>
